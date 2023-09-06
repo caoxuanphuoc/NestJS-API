@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  dev-database: 
+    image: postgres:15.0
+    container_name: dev-database
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER : postgres
+      POSRGRES_PASSWORD: Abc123@
+      POSRGRES_DB: testDB
+      POSTGRES_HOST_AUTH_METHOD: trust
+    networks:
+      - nestjs_test_app
+networks:
+  nestjs_test_app: 
+# run: docker compose up -d
+# if you wanna start only dev-database: docker compose up -d dev-database -d
